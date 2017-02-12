@@ -1,3 +1,4 @@
-<p>
-    pending-orders works!
-</p>
+<md-progress-bar mode="indeterminate" *ngIf="state?.uploadInProgress"></md-progress-bar>
+
+<button md-button *ngIf="!state?.uploadInProgress" (click)="startUpload()">start upload</button>
+<button md-button *ngIf="state?.uploadInProgress" (click)="stopUpload()">stop upload</button>

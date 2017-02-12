@@ -6,13 +6,15 @@ import {UploadComponent} from './upload/upload.component';
 import {UploadRoutingModule} from "./upload-routing.module";
 import {FormsModule} from "@angular/forms";
 import {FileUploadModule} from "ng2-file-upload";
+import {MaterialModule} from "@angular/material";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         UploadRoutingModule,
-        FileUploadModule
+        FileUploadModule,
+        MaterialModule.forRoot(),
     ],
     declarations: [
         UploadComponent,

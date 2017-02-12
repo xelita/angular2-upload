@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {UserService} from "./user.service";
 import {UploadService} from "./upload.service";
 import {HttpModule} from "@angular/http";
+import {RouteService} from "./route.service";
 
 @NgModule({
     imports: [
@@ -11,7 +12,7 @@ import {HttpModule} from "@angular/http";
     ],
     declarations: [],
     providers: [
-        UserService, UploadService
+        RouteService, UserService, UploadService
     ]
 })
 export class ServicesModule {

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {State} from "../../core/model/state.model";
 
 @Component({
     selector: 'app-pending-orders',
@@ -7,10 +8,20 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PendingOrdersComponent implements OnInit {
 
+    state:State;
+
     constructor() {
     }
 
     ngOnInit() {
+        this.state = new State();
     }
 
+    startUpload(){
+        this.state.uploadInProgress = true;
+    }
+
+    stopUpload(){
+        this.state.uploadInProgress = false;
+    }
 }
