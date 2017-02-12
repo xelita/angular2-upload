@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {State} from "../../core/model/state.model";
+import {AppState} from "../../app.store";
+import {NgRedux, select} from "@angular-redux/store";
+import {UploadActions} from "../upload.actions";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-pending-orders',
@@ -8,20 +11,20 @@ import {State} from "../../core/model/state.model";
 })
 export class PendingOrdersComponent implements OnInit {
 
-    state:State;
+    @select() uploadInProgress$: Observable<boolean>;
 
-    constructor() {
+    constructor(private ngRedux: NgRedux<AppState>,
+                public actions: UploadActions) {
     }
 
     ngOnInit() {
-        this.state = new State();
     }
 
-    startUpload(){
-        this.state.uploadInProgress = true;
+    startUpload() {
+        this.ngRedux.dispatch(this.actions.startUpload());
     }
 
-    stopUpload(){
-        this.state.uploadInProgress = false;
+    stopUpload() {
+        this.ngRedux.dispatch(this.actions.stopUpload());
     }
 }

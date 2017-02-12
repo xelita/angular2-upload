@@ -7,6 +7,7 @@ import {UploadRoutingModule} from "./upload-routing.module";
 import {FormsModule} from "@angular/forms";
 import {FileUploadModule} from "ng2-file-upload";
 import {MaterialModule} from "@angular/material";
+import {UploadActions} from "./upload.actions";
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import {MaterialModule} from "@angular/material";
     ],
     exports: [
         UploadComponent
-    ]
+    ],
+    providers: [UploadActions]
 })
 export class UploadModule {
 }

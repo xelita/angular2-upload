@@ -1,4 +1,4 @@
-<md-progress-bar mode="indeterminate" *ngIf="state?.uploadInProgress"></md-progress-bar>
+<md-progress-bar mode="indeterminate" *ngIf="(uploadInProgress$ | async)"></md-progress-bar>
 
-<button md-button *ngIf="!state?.uploadInProgress" (click)="startUpload()">start upload</button>
-<button md-button *ngIf="state?.uploadInProgress" (click)="stopUpload()">stop upload</button>
+<button md-button *ngIf="!(uploadInProgress$ | async)" (click)="startUpload()">start upload</button>
+<button md-button *ngIf="(uploadInProgress$ | async)" (click)="stopUpload()">stop upload</button>
